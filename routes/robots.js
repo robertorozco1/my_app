@@ -13,19 +13,19 @@ router.get('/robots', function(req, res, next) {
   res.render('robots/index', {robots: myRobots, title: "All Robots"});
     });
 
-    router.get('/robots/:id', function(req, res, next) {
-      var robotId = req.params.id;
-      var robot = myRobots.find(function(robot){ return robot._id == robotId })
+router.get('/robots/:id', function(req, res, next) {
+  var robotId = req.params.id;
+  var robot = myRobots.find(function(robot){ return robot._id == robotId })
 
-      if (robot) {
-        console.log("SHOWING ROBOT", robot)
-        res.render('robots/show', {robot: robot, title: `Robot ${robotId}`});
-      } else {
-        var errorMessage = `OOPS - COULDN'T FIND ROBOT ${robotId}`
-        console.log(errorMessage)
-        res.send(errorMessage)
-      }
-    });
+  if (robot) {
+    console.log("SHOWING ROBOT", robot)
+    res.render('robots/show', {robot: robot, title: `Robot ${robotId}`});
+  } else {
+    var errorMessage = `OOPS - COULDN'T FIND ROBOT ${robotId}`
+    console.log(errorMessage)
+    res.send(errorMessage)
+  }
+});
 
 
 module.exports = router;
