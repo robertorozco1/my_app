@@ -24,7 +24,7 @@ router.get('/robots/:id', function(req, res, next) {
   var robotId = req.params.id;
   var errorMessage = `OOPS - COULDN'T FIND ROBOT ${robotId}`
   var url = `https://southernct-443-robots-api.herokuapp.com/api/robots/${robotId}`
-
+/* Vanilla JS Fetch
   fetch(url)
     .then(function(response) {
       response.json()
@@ -42,6 +42,10 @@ router.get('/robots/:id', function(req, res, next) {
       res.send(errorMessage)
     })
 });
-
+*/
+  d3.json(url, function(json) {
+    console.log("SHOWING ROBOT", json)
+    res.render('robots/show', {robot: json, title: `Robot ${robotId}`});
+  })
 
 module.exports = router;
