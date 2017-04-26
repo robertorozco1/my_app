@@ -19,7 +19,7 @@ router.get('/robots', function(req, res, next) {
   });
 });
 
-
+//Show Robots
 router.get('/robots/:id', function(req, res, next) {
   var robotId = req.params.id;
   var errorMessage = `OOPS - COULDN'T FIND ROBOT ${robotId}`
@@ -48,5 +48,13 @@ router.get('/robots/:id', function(req, res, next) {
     res.render('robots/show', {robot: json, title: `Robot ${robotId}`});
   });
 });
+
+//'robots/new'
+router.get('/robots/new', function(req, res, next) { // handle GET requests to the robots/new URL path
+  res.render('robots/new', { // render the robots/new.ejs view
+    title: "New Robot"
+  })
+});
+
 
 module.exports = router;
