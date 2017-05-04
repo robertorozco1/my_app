@@ -9,5 +9,29 @@
 
     <p><%= robot.name %> - <%= robot.description %></p>
 
+    <button id="delete">Delete</button>
+
   </body>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script style="text/javascript">
+    var deleteButt = document.getElementById("delete")
+    const requestUrl = '<%= requestUrl %>'
+
+    deleteButt.addEventListener("click", deleteBot, false)
+
+    function deleteBot (event) {
+      event.preventDefault();
+      $.ajax({
+        url: requestUrl,
+        type: 'DELETE',
+        success: function(result) {
+            window.location = '/robots'
+          }
+      });
+
+    };
+
+  </script>
+
 </html>

@@ -18,6 +18,12 @@ router.get('/robots', function(req, res, next) {
     }
   });
 });
+//'robots/new'
+router.get('/robots/new', function(req, res, next) { // handle GET requests to the robots/new URL path
+  res.render('robots/new', { // render the robots/new.ejs view
+    title: "New Robot"
+  });
+});
 
 //Show Robots
 router.get('/robots/:id', function(req, res, next) {
@@ -45,16 +51,14 @@ router.get('/robots/:id', function(req, res, next) {
 */
   d3.json(url, function(json) {
     console.log("SHOWING ROBOT", json);
-    res.render('robots/show', {robot: json, title: `Robot ${robotId}`});
+    res.render('robots/show', {
+      robot: json,
+      title: `Robot ${robotId}`,
+      requestUrl: url
+    });
   });
 });
 
-//'robots/new'
-router.get('/robots/new', function(req, res, next) { // handle GET requests to the robots/new URL path
-  res.render('robots/new', { // render the robots/new.ejs view
-    title: "New Robot"
-  })
-});
 
 
 module.exports = router;
