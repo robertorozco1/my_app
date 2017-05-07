@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <% include ../templates/header %>
+
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
@@ -24,7 +26,7 @@
 
     <hr style="margin-top:2em;">
 
-    <% include ../footer %>
+    <% include ../templates/footer %>
 
     <script type="text/javascript">
       const requestMethod = "<%= requestMethod %>"

@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <% include ../templates/header.ejs %>
   </head>
   <body>
+    <div class="container">
     <h1><%= title %></h1>
 
     <a href="/robots"><%= "<< back" %></a>
 
     <form id="new-robot-form" action="https://southernct-443-robots-api.herokuapp.com/api/robots" method="POST">
+      <div class="form-group">
       <label for="name">Name</label>
-      <input id="name" name="name" type="text" placeholder="My Robot">
+      <input class="form-control" id="name" name="name" type="text" placeholder="My Robot" >
       <br>
 
+
       <label for="description">Description</label>
-      <textarea id="description" name="description" rows="10" placeholder="Does all the things..."></textarea>
+      <textarea class="form-control" id="description" name="description" rows="10" placeholder="Does all the things..."></textarea>
+
       <br>
 
       <label for="in-stock">Units in-stock</label>
-      <input id="in-stock" name="in_stock" type="number" placeholder="0">
+      <input class="form-control" id="in-stock" name="in_stock" type="number" placeholder="0">
       <br>
 
       <button id="submit" type="submit">Submit</button>
     </form>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script><!-- ONLY NECESSARY IF YOU'RE SENDING REQUESTS VIA jQUERY -->
     <script src="https://d3js.org/d3.v4.min.js"></script><!-- ONLY NECESSARY IF YOU'RE SENDING REQUESTS VIA D3 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script type="text/javascript">
 
       var inputName = document.getElementById("name")
@@ -52,6 +57,7 @@
           })
         }
     </script>
-    <% include ./footer %>
+    <% include ../templates/footer %>
+    </div>
   </body>
 </html>

@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <% include ../templates/header %>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
+  <!-- bootstrap container -->
+  <div class="container">
+
   <body>
+
     <h1>Robots List</h1>
     <p>
       There are <%= robots.length %> robots
@@ -23,6 +28,7 @@
     <a href="/robots/new">
       <button>+ New Robot</button>
     </a>
-      <% include ./footer %>
+      <% include ../templates/footer %>
   </body>
+  </div>
 </html>

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <% include ../templates/header %>
+
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
@@ -8,6 +10,6 @@
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
     <a href ="/robots">Robots List</a>
-    <% include ./footer %>
+    <% include ../templates/footer %>
   </body>
 </html>
