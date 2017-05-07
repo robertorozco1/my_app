@@ -18,7 +18,9 @@ router.get('/robots', function(req, res, next) {
     }
   });
 });
-//'robots/new'
+
+
+//New Robots
 router.get('/robots/new', function(req, res, next) { // handle GET requests to the robots/new URL path
   res.render('robots/new', { // render the robots/new.ejs view
     title: "New Robot"
@@ -30,31 +32,26 @@ router.get('/robots/:id', function(req, res, next) {
   var robotId = req.params.id;
   var errorMessage = `OOPS - COULDN'T FIND ROBOT ${robotId}`
   var url = `https://southernct-443-robots-api.herokuapp.com/api/robots/${robotId}`
-/* Vanilla JS Fetch
-  fetch(url)
-    .then(function(response) {
-      response.json()
-        .then(function(json){
-          console.log("SHOWING ROBOT", json)
-          res.render('robots/show', {robot: json, title: `Robot ${robotId}`});
-        })
-        .catch(function(err){
-          console.log("JSON PARSE ERROR", err)
-          res.send(errorMessage)
-        })
-    })
-    .catch(function(err){
-      console.log(errorMessage)
-      res.send(errorMessage)
-    })
-});
-*/
   d3.json(url, function(json) {
     console.log("SHOWING ROBOT", json);
     res.render('robots/show', {
       robot: json,
       title: `Robot ${robotId}`,
       requestUrl: url
+    });
+  });
+});
+
+router.get('/robots/:id/edit', function(req, res, next) {
+  const robotId = req.params.id
+  const endpointUrl = `https://southernct-443-robots-api.herokuapp.com/api/robots/${robotId}`
+  d3.json(endpointUrl, function(json){
+    console.log("loading Bot Details", json);
+    res.render('robots/edit', {
+      robot: json,
+      title: `Robot ${robotId}`,
+      requestUrl: endpointUrl,
+      requestMethod: "PUT"
     });
   });
 });

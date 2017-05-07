@@ -10,6 +10,9 @@
     <p><%= robot.name %> - <%= robot.description %></p>
 
     <button id="delete">Delete</button>
+    <a href="/robots/<%= robot._id %>/edit">
+      <button>Edit</button>
+    </a>
 
     <% include ./footer %>
   </body>
