@@ -4,8 +4,8 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', {
-    title: 'My App Heyo',
-    message1: "Ay Lmao"});
+    title: 'CRUD App',
+    message1: "Robot DB"});
 });
 
 module.exports = router;
