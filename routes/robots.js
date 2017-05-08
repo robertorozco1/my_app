@@ -42,6 +42,7 @@ router.get('/robots/:id', function(req, res, next) {
   });
 });
 
+//Edit Robot
 router.get('/robots/:id/edit', function(req, res, next) {
   const robotId = req.params.id
   const endpointUrl = `https://southernct-443-robots-api.herokuapp.com/api/robots/${robotId}`

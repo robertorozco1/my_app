@@ -14,17 +14,40 @@
     <p>
       There are <%= robots.length %> robots
     </p>
-    <ul>
-
+    <table class="table table-hover">
+      <tr>
+        <th>
+          Robot ID
+        </th>
+        <th>
+          Name
+        </th>
+        <th>
+          Description
+        </th>
+        <th>
+          
+        </th>
+      </tr>
       <% robots.forEach(function(robot){ %>
-
-        <li>
+      <tr>
+        <th>
           <a href="/robots/<%= robot._id %>"><%= robot._id %></a>
-          - <%= robot.name %>
-          - <%= robot.description %>
-        </li>
+        </th>
+        <th>
+          <%= robot.name %>
+        </th>
+        <th>
+          <%= robot.description %>
+        </th>
+        <th>
+          <a href="/robots/<%= robot._id %>">
+            <button>Edit</button>
+          </a>
+        </th>
+      </tr>
       <% }); %>
-    </ul>
+    </table>
     <a href="/robots/new">
       <button>+ New Robot</button>
     </a>
